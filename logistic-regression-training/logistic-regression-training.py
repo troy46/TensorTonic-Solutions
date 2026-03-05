@@ -18,7 +18,7 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
     
     
     def gradient(w,b):
-        p = _sigmoid(X @ w.T + b)
+        p = _sigmoid(X @ w + b)
         dl_dp = -(y/p - (1-y)/(1-p))/len(y) #(N,1)
         dp_dw = X.T*_d_sigmoid(X@w+b) #(p,N)
         dp_db = _d_sigmoid(X@w+b) # (N,1)
